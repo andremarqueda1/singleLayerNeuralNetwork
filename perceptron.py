@@ -8,8 +8,8 @@ Simple Perceptron (Single layer Neural Network)
 """
 
 
-import csv 
-
+import csv
+import random
 """Lectura de SandwichAnts CSV.
 Para su posterior procesamiento"""
 print ("****READING INPUT VALUES*****")
@@ -30,14 +30,17 @@ with open('SandwichAnts.csv',newline='\n') as csvfile:
             else:
                 butter.append(False)
             ants.append(row[4])
-            
+            weight.append(random.random())
             columnNumber+=1
             
 print("Randomizing weights")
-
+header.append("Weight")
 print(header)
+content=[]
 for i in range (columnNumber-1):
-    print(trial[i],bread[i],filling[i],butter[i],ants[i],sep="\t")
+    content.append([trial[i],bread[i],filling[i],butter[i],ants[i],round (weight[i],3)])
+
+print (*content, sep="\n"*2)
     
 
 
