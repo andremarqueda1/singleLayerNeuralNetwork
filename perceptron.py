@@ -25,11 +25,11 @@ with open('SandwichAnts.csv',newline='\n') as csvfile:
             trial.append(int (row[0]))#Casting as integer
             bread.append(row[1])
             filling.append(row[2])
-            if (row[3]=="yes"):
-                butter.append(True)
+            if (row[3]=="yes"): #Converting to boolean
+                butter.append(1)
             else:
-                butter.append(False)
-            ants.append(row[4])
+                butter.append(0)
+            ants.append(int(row[4]))
             weight.append(random.random())
             columnNumber+=1
             
@@ -41,6 +41,4 @@ for i in range (columnNumber-1):
     content.append([trial[i],bread[i],filling[i],butter[i],ants[i],round (weight[i],3)])
 
 print (*content, sep="\n"*2)
-    
-
 
